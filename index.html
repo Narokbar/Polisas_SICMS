@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>
+POLISAS SICMS Dashboard
+</title>
+
+
+<link rel="stylesheet" href="css/style.css">
+
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<header>
+
+
+<div class="logo">
+
+
+<img src="images/download.png">
+
+
+<h2>
+POLISAS SICMS
+</h2>
+
+
+</div>
+
+
+
+<div class="nav-right">
+
+
+<select id="language">
+
+<option>
+English
+</option>
+
+<option>
+Bahasa Melayu
+</option>
+
+</select>
+
+
+
+<button id="darkModeBtn">
+
+<i class="fa-solid fa-moon"></i>
+
+</button>
+
+
+<button id="logoutBtn">
+
+Logout
+
+</button>
+
+
+</div>
+
+
+
+</header>
+
+
+
+
+
+<!-- WELCOME SECTION -->
+
+
+<section class="welcome">
+
+
+<div>
+
+
+<h1 id="welcomeTitle">
+Welcome Back 👋
+</h1>
+
+
+<h2 id="studentName">
+
+Student Name
+
+</h2>
+
+
+<p id="studentProgramme">
+
+Programme
+
+</p>
+
+
+<p id="studentID">
+
+Student ID
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- SEARCH -->
+
+
+<section class="search-section">
+
+
+<h2 id="searchTitle">
+Search Information
+</h2>
+
+
+
+<div class="search-box">
+
+
+
+<input 
+type="text"
+id="searchInput"
+placeholder="Search anything...">
+
+
+
+<button id="searchBtn">
+
+<i class="fa-solid fa-search"></i>
+
+</button>
+
+
+</div>
+
+<div id="suggestions"></div>
+
+<div id="result">
+
+Start searching information...
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<!--  ACCESS -->
+
+
+<section>
+
+
+<h2 class="title" id="quickAccessTitle">
+
+Quick Access
+
+</h2>
+
+
+
+<div class="cards">
+
+
+
+<div class="card" data-search="registration">
+
+<i class="fa-solid fa-user-plus"></i>
+
+<h3>
+Registration
+</h3>
+
+</div>
+
+
+
+
+<div class="card" data-search="transcript">
+
+<i class="fa-solid fa-file"></i>
+
+<h3>
+Transcript
+</h3>
+
+</div>
+
+
+
+
+
+<div class="card" data-search="hostel">
+
+<i class="fa-solid fa-building"></i>
+
+<h3>
+Hostel
+</h3>
+
+</div>
+
+
+
+
+
+<div class="card" data-search="fees">
+
+<i class="fa-solid fa-money-bill"></i>
+
+<h3>
+Fees
+</h3>
+
+</div>
+
+
+
+
+
+<div class="card" data-search="calendar">
+
+<i class="fa-solid fa-calendar"></i>
+
+<h3>
+Academic Calendar
+</h3>
+
+</div>
+
+
+
+
+
+<div class="card" data-search="library">
+
+<i class="fa-solid fa-book"></i>
+
+<h3>
+Library
+</h3>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+<!-- ===================================
+        FAQ SECTION — V8
+=================================== -->
+
+<section class="faq-section">
+
+    <h2 class="title">
+        ❓ Frequently Asked Questions
+    </h2>
+
+    <div class="faq-container">
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                How do I register my subjects?
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+                <p>
+                    Login to the SPMP Portal, select Course Registration,
+                    choose your available subjects, then confirm and submit
+                    your registration.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                How do I pay my fees?
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+                <p>
+                    Check your tuition fee amount, proceed to the official
+                    payment system, complete the payment and keep your receipt.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                How can I apply for hostel?
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+                <p>
+                    Prepare your student information, complete the hostel
+                    application form, prepare supporting documents and submit
+                    your application through the Student Affairs Department.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                How can I apply for an academic transcript?
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+                <p>
+                    Login to the student portal, select Transcript Application,
+                    fill in the required details and submit your request.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                What can I do on SPMP?
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+                <p>
+                    SPMP provides access to course registration, academic
+                    results, student information and announcements.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                What services are available at the library?
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+                <p>
+                    The library provides book borrowing, digital resources
+                    and study facilities.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                What is the Academic Calendar?
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+                <p>
+                    The Academic Calendar contains important academic dates
+                    such as semester dates, registration periods,
+                    examination schedules and holidays.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===================================
+        COUNTER BOOKING SYSTEM
+=================================== -->
+
+<section class="booking-section">
+
+    <h2 class="title">
+        🎫 Counter Booking
+    </h2>
+
+    <div class="booking-container">
+
+        <!-- BOOKING FORM -->
+
+        <div class="booking-form">
+
+            <h2>
+                Book a Counter Appointment
+            </h2>
+
+            <p>
+                Select a service, date and preferred time.
+            </p>
+
+
+            <!-- SERVICE -->
+
+            <label for="bookingService">
+                Select Service
+            </label>
+
+            <select id="bookingService">
+
+                <option value="">
+                    -- Select Service --
+                </option>
+
+                <option value="Student Registration">
+                    Student Registration
+                </option>
+
+                <option value="Transcript">
+                    Transcript
+                </option>
+
+                <option value="Fees">
+                    Fees / Payment
+                </option>
+
+                <option value="Hostel">
+                    Hostel
+                </option>
+
+                <option value="Student Affairs">
+                    Student Affairs
+                </option>
+
+                <option value="Other">
+                    Other
+                </option>
+
+            </select>
+
+
+            <!-- DATE -->
+
+            <label for="bookingDate">
+                Select Date
+            </label>
+
+            <input
+                type="date"
+                id="bookingDate"
+            >
+
+
+            <!-- TIME -->
+
+            <label for="bookingTime">
+                Select Time
+            </label>
+
+            <select id="bookingTime">
+
+                <option value="">
+                    -- Select Time --
+                </option>
+
+                <option value="8:00 AM - 9:00 AM">
+                    8:00 AM - 9:00 AM
+                </option>
+
+                <option value="9:00 AM - 10:00 AM">
+                    9:00 AM - 10:00 AM
+                </option>
+
+                <option value="10:00 AM - 11:00 AM">
+                    10:00 AM - 11:00 AM
+                </option>
+
+                <option value="11:00 AM - 12:00 PM">
+                    11:00 AM - 12:00 PM
+                </option>
+
+                <option value="2:00 PM - 3:00 PM">
+                    2:00 PM - 3:00 PM
+                </option>
+
+                <option value="3:00 PM - 4:00 PM">
+                    3:00 PM - 4:00 PM
+                </option>
+
+            </select>
+
+
+            <!-- ERROR -->
+
+            <p
+                id="bookingError"
+                class="booking-error">
+            </p>
+
+
+            <!-- BUTTON -->
+
+            <button
+                id="bookCounterBtn"
+                class="booking-btn">
+
+                🎫 Book Counter Appointment
+
+            </button>
+
+        </div>
+
+
+        <!-- BOOKING RESULT -->
+
+        <div
+            id="bookingResult"
+            class="booking-result">
+
+            <div class="booking-placeholder">
+
+                <span>
+                    🎫
+                </span>
+
+                <h3>
+                    No Active Booking
+                </h3>
+
+                <p>
+                    Your booking information
+                    will appear here.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================
+     LOCATION / GOOGLE MAP
+=================================== -->
+
+<section class="location-section">
+
+    <h2 class="title">
+        📍 Find Us
+    </h2>
+
+    <div class="location-card">
+
+        <div class="location-info">
+
+            <h2>POLISAS</h2>
+
+            <p>
+                Politeknik Sultan Haji Ahmad Shah
+            </p>
+
+            <p>
+                Find the campus location and
+                get directions easily.
+            </p>
+
+            <a
+                href="https://www.google.com/maps/search/?api=1&query=Politeknik+Sultan+Haji+Ahmad+Shah"
+                target="_blank"
+                class="direction-btn"
+            >
+                🧭 Get Directions
+            </a>
+
+        </div>
+
+        <div class="map-container">
+
+            <iframe
+                src="https://www.google.com/maps?q=Politeknik%20Sultan%20Haji%20Ahmad%20Shah&output=embed"
+                loading="lazy"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+<!-- ===================================
+        ANNOUNCEMENT
+=================================== -->
+
+<section class="announcement-section">
+
+    <h2 class="title" id="announcementTitle">
+        Latest Announcement
+    </h2>
+
+    <div class="announcement">
+
+        <div class="announcement-track">
+
+            📢 Registration opens on 5 August
+            &nbsp;&nbsp; | &nbsp;&nbsp;
+            🎓 Convocation registration is now available
+            &nbsp;&nbsp; | &nbsp;&nbsp;
+            💰 Scholarship application is open
+            &nbsp;&nbsp; | &nbsp;&nbsp;
+            📚 Library is open until 10 PM
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================
+        AI CHATBOT
+=================================== -->
+
+<div class="ai-container">
+
+    <div class=" ai-attention">
+
+        <span class="ai-sparkle">✨</span>
+
+        <div>
+            <strong>POLISAS ICON Suii</strong>
+            <small>Need Help?</small>
+        </div>
+
+    </div>
+
+
+
+<button id="chatbot">
+
+    <img src="images/images.jpg" alt="Ronaldo AI Assistant">
+
+</button>
+
+
+
+<div class="chat-window" id="chatWindow">
+
+
+
+<div class="chat-header">
+
+
+<div>
+
+🤖 POLISAS AI Assistant
+
+</div>
+
+
+<span id="closeChat">
+
+×
+
+</span>
+
+
+</div>
+
+
+
+
+
+<div class="chat-body" id="chatBody">
+
+
+
+<div class="bot-message">
+
+
+Hello 👋
+
+<br><br>
+
+I am <b>POLISAS AI Assistant</b>.
+
+<br><br>
+
+I can help you with:
+
+<br>
+
+✅ Registration
+
+<br>
+
+✅ Fees
+
+<br>
+
+✅ Hostel
+
+<br>
+
+✅ Transcript
+
+<br>
+
+✅ SPMP
+
+<br>
+
+✅ Academic Calendar
+
+<br><br>
+
+How can I help you today?
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<div class="chat-suggestion">
+
+    <button type="button" data-question="How do I register my subjects?">
+        Registration
+    </button>
+
+    <button type="button" data-question="How do I pay my fees?">
+        Fees
+    </button>
+
+    <button type="button" data-question="How do I apply for hostel?">
+        Hostel
+    </button>
+
+    <button type="button" data-question="What can I do on SPMP?">
+        SPMP
+    </button>
+
+</div>
+
+
+
+
+<div class="chat-input">
+
+
+<input
+
+type="text"
+
+id="chatInput"
+
+placeholder="Ask me anything..."
+
+>
+
+
+
+<button id="sendChat">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+</button>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+<footer>
+
+
+© 2026 POLISAS SICMS
+
+
+</footer>
+
+
+
+<script src="js/information.js"></script>
+<script src="js/script.js"></script>
+<script src="js/language.js"></script>
+
+
+</body>
+
+</html>

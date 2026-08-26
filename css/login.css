@@ -1,0 +1,357 @@
+/* ===========================
+   GOOGLE FONT
+=========================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(
+        rgba(0,47,108,0.75),
+        rgba(0,47,108,0.75)
+    ),
+    url("../images/polisas-campus.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+}
+
+/* ===========================
+   MAIN CONTAINER
+=========================== */
+
+.login-container{
+
+    width:1100px;
+    max-width:95%;
+
+    min-height:650px;
+
+    display:flex;
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.25);
+
+}
+
+/* ===========================
+   LEFT PANEL
+=========================== */
+
+.left-panel{
+
+    width:45%;
+
+    background:linear-gradient(
+        135deg,
+        #004b93,
+        #0066cc
+    );
+
+    color:white;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    padding:50px;
+
+    text-align:center;
+
+}
+
+.logo{
+
+    width:140px;
+
+    margin-bottom:25px;
+
+}
+
+.left-panel h1{
+
+    font-size:34px;
+
+    margin-bottom:10px;
+
+}
+
+.left-panel h3{
+
+    font-weight:400;
+
+    margin-bottom:25px;
+
+}
+
+.left-panel p{
+
+    line-height:1.8;
+
+    opacity:.95;
+
+    font-size:16px;
+
+}
+
+/* ===========================
+   RIGHT PANEL
+=========================== */
+
+.right-panel{
+
+    width:55%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#f8fbff;
+
+}
+
+.login-box{
+
+    width:420px;
+    max-width:90%;
+
+}
+
+.login-box h2{
+
+    color:#004b93;
+
+    font-size:34px;
+
+    margin-bottom:10px;
+
+}
+
+.login-box p{
+
+    color:#777;
+
+    margin-bottom:30px;
+
+}
+
+/* ===========================
+   INPUT
+=========================== */
+
+.input-group{
+
+    margin-bottom:20px;
+
+}
+
+.input-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:500;
+
+    color:#333;
+
+}
+
+.input-group input{
+
+    width:100%;
+
+    padding:15px;
+
+    border:1px solid #ccc;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.input-group input:focus{
+
+    border-color:#0066cc;
+
+    outline:none;
+
+    box-shadow:
+    0 0 10px rgba(0,102,204,.2);
+
+}
+
+/* ===========================
+   PASSWORD
+=========================== */
+
+.password-box{
+
+    position:relative;
+
+}
+
+.password-box input{
+
+    padding-right:50px;
+
+}
+
+.password-box i{
+
+    position:absolute;
+
+    right:18px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    cursor:pointer;
+
+    color:#666;
+
+}
+
+/* ===========================
+   OPTIONS
+=========================== */
+
+.options{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin:25px 0;
+
+    font-size:14px;
+
+}
+
+.options a{
+
+    text-decoration:none;
+
+    color:#0066cc;
+
+}
+
+.options a:hover{
+
+    text-decoration:underline;
+
+}
+
+/* ===========================
+   LOGIN BUTTON
+=========================== */
+
+#loginBtn{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#0056b3;
+
+    color:white;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#loginBtn:hover{
+
+    background:#003b7a;
+
+    transform:translateY(-2px);
+
+}
+
+/* ===========================
+   ERROR
+=========================== */
+
+#errorMessage{
+
+    margin-top:20px;
+
+    color:red;
+
+    text-align:center;
+
+    font-size:15px;
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:900px){
+
+.login-container{
+
+    flex-direction:column;
+
+}
+
+.left-panel{
+
+    width:100%;
+
+    padding:40px;
+
+}
+
+.right-panel{
+
+    width:100%;
+
+    padding:40px 0;
+
+}
+
+}

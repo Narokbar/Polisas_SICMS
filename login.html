@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>POLISAS SICMS | Login</title>
+
+    <link
+        rel="stylesheet"
+        href="css/login.css">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<div class="login-container">
+
+
+    <!-- ===================================== -->
+    <!-- LEFT PANEL -->
+    <!-- ===================================== -->
+
+    <div class="left-panel">
+
+
+        <img
+            src="images/logo.png"
+            alt="POLISAS Logo"
+            class="logo">
+
+
+        <h1>
+            POLISAS SICMS
+        </h1>
+
+
+        <h3>
+            Smart Information Counter Management System
+        </h3>
+
+
+        <p>
+            Welcome to the Smart Information Counter Management System.
+            Access student information quickly, easily and securely.
+        </p>
+
+
+    </div>
+
+
+
+    <!-- ===================================== -->
+    <!-- RIGHT PANEL -->
+    <!-- ===================================== -->
+
+    <div class="right-panel">
+
+
+        <div class="login-box">
+
+
+            <!-- ================================= -->
+            <!-- LOGIN FORM -->
+            <!-- ================================= -->
+
+            <div id="loginSection">
+
+
+                <h2>
+                    Login
+                </h2>
+
+
+                <p>
+                    Please sign in to continue.
+                </p>
+
+
+                <form id="loginForm">
+
+
+                    <!-- STUDENT ID -->
+
+                    <div class="input-group">
+
+                        <label>
+                            Student ID
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="studentID"
+                            placeholder="Example: 02FTV26F1022">
+
+
+                    </div>
+
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="input-group">
+
+                        <label>
+                            Password
+                        </label>
+
+
+                        <div class="password-box">
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Enter your password">
+
+
+                            <i
+                                class="fa-solid fa-eye"
+                                id="togglePassword">
+                            </i>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- OPTIONS -->
+
+                    <div class="options">
+
+
+                        <label>
+
+                            <input
+                                type="checkbox"
+                                id="rememberMe">
+
+                            Remember Me
+
+                        </label>
+
+
+                        <a href="#">
+                            Forgot Password?
+                        </a>
+
+
+                    </div>
+
+
+
+                    <!-- LOGIN BUTTON -->
+
+                    <button
+                        type="submit"
+                        id="loginBtn">
+
+                        Login
+
+                    </button>
+
+
+
+                    <p id="errorMessage"></p>
+
+
+                </form>
+
+
+
+                <!-- REGISTER LINK -->
+
+                <div class="register-link">
+
+                    <p>
+                        Don't have an account?
+                        <a
+                            href="#"
+                            id="showRegister">
+                            Register here
+                        </a>
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ================================= -->
+            <!-- REGISTER FORM -->
+            <!-- ================================= -->
+
+            <div
+                id="registerSection"
+                style="display:none;">
+
+
+                <h2>
+                    Create Account
+                </h2>
+
+
+                <p>
+                    Register your POLISAS student account.
+                </p>
+
+
+                <form id="registerForm">
+
+
+                    <!-- FULL NAME -->
+
+                    <div class="input-group">
+
+                        <label>
+                            Full Name
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="registerName"
+                            placeholder="Enter your full name">
+
+                    </div>
+
+
+
+                    <!-- STUDENT ID -->
+
+                    <div class="input-group">
+
+                        <label>
+                            Student ID
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="registerStudentID"
+                            placeholder="Example: 02FTV26F1022">
+
+                    </div>
+
+
+
+                    <!-- PROGRAMME -->
+
+                    <div class="input-group">
+
+                        <label>
+                            Programme
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="registerProgramme"
+                            placeholder="Example: Foundation of Engineering Technology">
+
+                    </div>
+
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="input-group">
+
+                        <label>
+                            Password
+                        </label>
+
+
+                        <div class="password-box">
+
+                            <input
+                                type="password"
+                                id="registerPassword"
+                                placeholder="Create a password">
+
+
+                            <i
+                                class="fa-solid fa-eye"
+                                id="toggleRegisterPassword">
+                            </i>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- CONFIRM PASSWORD -->
+
+                    <div class="input-group">
+
+                        <label>
+                            Confirm Password
+                        </label>
+
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Confirm your password">
+
+                    </div>
+
+
+
+                    <!-- REGISTER BUTTON -->
+
+                    <button
+                        type="submit"
+                        id="registerBtn">
+
+                        Create Account
+
+                    </button>
+
+
+                    <p id="registerMessage"></p>
+
+
+                </form>
+
+
+
+                <!-- BACK TO LOGIN -->
+
+                <div class="register-link">
+
+                    <p>
+
+                        Already have an account?
+
+                        <a
+                            href="#"
+                            id="showLogin">
+
+                            Login here
+
+                        </a>
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- ===================================== -->
+<!-- JAVASCRIPT -->
+<!-- ===================================== -->
+
+<script src="js/database.js"></script>
+
+<script src="js/login.js"></script>
+
+
+</body>
+
+</html>
