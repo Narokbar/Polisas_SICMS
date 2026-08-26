@@ -60,7 +60,97 @@
 
     </div>
 
+<!-- ======================================= -->
+<!-- FORGOT PASSWORD SECTION -->
+<!-- ======================================= -->
 
+<div class="login-box" id="forgotPasswordSection" style="display:none;">
+
+    <h2>Reset Password</h2>
+
+    <p>Enter your Student ID to reset your password.</p>
+
+    <form id="forgotPasswordForm">
+
+        <div class="input-group">
+
+            <label>Student ID</label>
+
+            <input
+                type="text"
+                id="forgotStudentID"
+                placeholder="Example: 02FTV26F1022"
+            >
+
+        </div>
+
+
+        <div
+            class="input-group"
+            id="newPasswordGroup"
+            style="display:none;"
+        >
+
+            <label>New Password</label>
+
+            <div class="password-box">
+
+                <input
+                    type="password"
+                    id="newPassword"
+                    placeholder="Enter new password"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="input-group"
+            id="confirmNewPasswordGroup"
+            style="display:none;"
+        >
+
+            <label>Confirm New Password</label>
+
+            <div class="password-box">
+
+                <input
+                    type="password"
+                    id="confirmNewPassword"
+                    placeholder="Confirm new password"
+                >
+
+            </div>
+
+        </div>
+
+
+        <button
+            type="submit"
+            id="forgotPasswordBtn"
+        >
+            Find Account
+        </button>
+
+
+        <p id="forgotPasswordMessage"></p>
+
+
+        <p class="back-login">
+
+            <a href="#" id="backToLogin">
+                ← Back to Login
+            </a>
+
+        </p>
+
+    </form>
+
+</div>
+
+    
 
     <!-- ===================================== -->
     <!-- RIGHT PANEL -->
@@ -155,9 +245,7 @@
                         </label>
 
 
-                        <a href="#">
-                            Forgot Password?
-                        </a>
+                        <a href="#" id="forgotPasswordLink">Forgot Password?</a>
 
 
                     </div>
