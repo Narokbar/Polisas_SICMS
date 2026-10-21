@@ -191,13 +191,23 @@ Start searching information...
 
 <h2 class="title" id="quickAccessTitle">
 
-Quick Access
+======Quick Access=======
 
 </h2>
 
 
 
 <div class="cards">
+
+    
+<div class="card" id="studentEnquiryCard">
+
+    <i class="fa-solid fa-envelope"></i>
+
+    <h3>Student Enquiry</h3>
+
+</div>
+
 
 
 
@@ -284,6 +294,83 @@ Library
 
 </div>
 
+
+</section>
+
+
+<!-- STUDENT ENQUIRY FORM -->
+<section class="enquiry-section" id="enquiryPanel" hidden>
+
+    <h2 class="title">
+        📝 Student Enquiry Form
+    </h2>
+
+    <div class="enquiry-container">
+
+        <p>
+            Have a question? Submit your enquiry to POLISAS counter staff.
+        </p>
+
+        <form id="enquiryForm">
+
+            <label for="enquiryName">Student Name *</label>
+            <input
+                type="text"
+                id="enquiryName"
+                placeholder="Enter your full name"
+                required
+            >
+
+            <label for="enquiryStudentID">Student ID *</label>
+            <input
+                type="text"
+                id="enquiryStudentID"
+                placeholder="Enter your student ID"
+                required
+            >
+
+            <label for="enquiryTopic">Enquiry Topic *</label>
+            <select id="enquiryTopic" required>
+                <option value="">Select a topic</option>
+                <option value="Registration">Registration</option>
+                <option value="Fees">Fees / Payment</option>
+                <option value="Hostel">Hostel</option>
+                <option value="Transcript">Transcript</option>
+                <option value="SPMP">SPMP</option>
+                <option value="Academic">Academic Matters</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="enquiryQuestion">Your Question *</label>
+            <textarea
+                id="enquiryQuestion"
+                rows="5"
+                placeholder="Describe your question here..."
+                required
+            ></textarea>
+
+            <p id="enquiryStatus" role="status"></p>
+
+            <button type="submit" class="enquiry-submit">
+                <i class="fa-solid fa-paper-plane"></i>
+                Submit Enquiry
+            </button>
+
+            <button
+                type="button"
+                id="closeEnquiry"
+                class="enquiry-cancel"
+            >
+                Back to Dashboard
+            </button>
+
+        </form>
+
+        
+
+    </div>
+
+    
 
 </section>
 
