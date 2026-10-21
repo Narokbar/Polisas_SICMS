@@ -2300,6 +2300,8 @@ function generateSmartAnswer(question){
     conversationContext.lastQuestion =
     question;
 
+        
+
 
 
     // ===================================
@@ -2389,59 +2391,48 @@ function generateSmartAnswer(question){
 
 
 
+   
     // ===================================
-    // NO INTENT
+    // NO INTENT — OFFER STUDENT ENQUIRY
     // ===================================
 
-    if(!intent){
+    if (!intent) {
 
-        if(language === "Bahasa Melayu"){
+        const isMalay = language === "Bahasa Melayu";
 
-            addAIMessage(`
+        const message = isMalay
+            ? `Maaf, saya tidak dapat mencari jawapan yang sesuai untuk soalan anda.
 
-                Maaf, saya kurang pasti
-                tentang soalan itu.
+               <br><br>
+               Anda boleh menghantar pertanyaan kepada staf kaunter POLISAS.`
+            : `Sorry, I couldn't find a suitable answer to your question.
 
-                <br><br>
+               <br><br>
+               You can submit an enquiry to POLISAS counter staff for further assistance.`;
 
-                Cuba tanya tentang:
+        addAIMessage(`
+            ${message}
 
-                <br>📚 Pendaftaran
-                <br>💰 Yuran
-                <br>🏠 Asrama
-                <br>📄 Transkrip
-                <br>💻 SPMP
-                <br>📅 Kalendar Akademik
-                <br>📖 Perpustakaan
+            <br>
+            <button
+                type="button"
+                class="chat-enquiry-btn"
+                onclick="openEnquiryForm()">
+                <i class="fa-solid fa-file-pen"></i>
+                ${isMalay ? "Hantar Pertanyaan" : "Submit an Enquiry"}
+            </button>
 
-            `);
-
-        }
-
-        else{
-
-            addAIMessage(`
-
-                I'm not quite sure what
-                you're asking yet.
-
-                <br><br>
-
-                Try asking about:
-
-                <br>📚 Registration
-                <br>💰 Fees
-                <br>🏠 Hostel
-                <br>📄 Transcript
-                <br>💻 SPMP
-                <br>📅 Academic Calendar
-                <br>📖 Library
-
-            `);
-
-        }
+            <br><br>
+            <small>
+                ${isMalay
+                    ? "Atau cuba tanya tentang pendaftaran, yuran, asrama atau SPMP."
+                    : "You can also ask about registration, fees, hostel or SPMP."}
+            </small>
+        `);
 
         return;
+    
+
 
     }
 
@@ -3342,112 +3333,313 @@ function formatBookingDate(date) {
 // CONTINUOUS RIGHT → LEFT
 // =======================================
 
-function initializeAnnouncement(){
+function initializeAnnouncement() {
 
     const announcement =
         document.querySelector(".announcement");
 
-
-    if(!announcement){
-
+    if (!announcement) {
         return;
-
     }
-
 
     // Prevent duplicate initialization
-
-    if(
-        announcement.querySelector(
-            ".announcement-track"
-        )
-    ){
-
+    if (announcement.querySelector(".announcement-track")) {
         return;
-
     }
 
+    const originalContent = announcement.innerHTML;
 
-    // Get the original announcement text/content
+    const track = document.createElement("div");
+    track.className = "announcement-track";
 
-    const originalContent =
-        announcement.innerHTML;
+    const content1 = document.createElement("div");
+    content1.className = "announcement-content";
+    content1.innerHTML = originalContent;
 
-
-    // Create moving track
-
-    const track =
-        document.createElement("div");
-
-
-    track.className =
-        "announcement-track";
-
-
-    // Create first copy
-
-    const content1 =
-        document.createElement("div");
-
-
-    content1.className =
-        "announcement-content";
-
-
-    content1.innerHTML =
-        originalContent;
-
-
-    // Create second copy
-
-    const content2 =
-        document.createElement("div");
-
-
-    content2.className =
-        "announcement-content";
-
-
-    content2.innerHTML =
-        originalContent;
-
-
-    // Add both copies
+    const content2 = document.createElement("div");
+    content2.className = "announcement-content";
+    content2.innerHTML = originalContent;
 
     track.appendChild(content1);
-
     track.appendChild(content2);
 
-
-    // Clear original announcement
-
     announcement.innerHTML = "";
-
-
-    // Add moving track
-
     announcement.appendChild(track);
-
 }
-
 
 
 // =======================================
 // START ANNOUNCEMENT
 // =======================================
 
-if(
-    document.readyState === "loading"
-){
+if (document.readyState === "loading") {
 
     document.addEventListener(
         "DOMContentLoaded",
         initializeAnnouncement
     );
 
-}
-else{
+} else {
 
     initializeAnnouncement();
 
 }
+
+
+// =======================================
+// STUDENT ENQUIRY FORM
+// =======================================
+
+// Replace this with your deployed Google Apps Script URL.
+const ENQUIRY_SCRIPT_URL =
+    "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+
+
+// =======================================
+// OPEN STUDENT ENQUIRY FORM
+// =======================================
+
+function openEnquiryForm() {
+
+    const panel =
+        document.getElementById("enquiryPanel");
+
+    const questionField =
+        document.getElementById("enquiryQuestion");
+
+    const form =
+        document.getElementById("enquiryForm");
+
+    const confirmation =
+        document.getElementById("enquiryConfirmation");
+
+    if (!panel) {
+        alert("Enquiry form not found. Please check your HTML.");
+        return;
+    }
+
+    // Automatically fill in the student's latest question
+    if (questionField) {
+        questionField.value =
+            conversationContext.lastQuestion || "";
+    }
+
+    if (form) {
+        form.hidden = false;
+    }
+
+    if (confirmation) {
+        confirmation.hidden = true;
+    }
+
+    panel.hidden = false;
+
+    panel.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
+
+
+// =======================================
+// RETURN TO CHAT
+// =======================================
+
+function returnToChat() {
+
+    const panel =
+        document.getElementById("enquiryPanel");
+
+    if (panel) {
+        panel.hidden = true;
+    }
+
+    if (chatWindow) {
+        chatWindow.style.display = "block";
+    }
+
+    if (chatInput) {
+        chatInput.focus();
+    }
+}
+
+
+// =======================================
+// CANCEL ENQUIRY
+// =======================================
+
+const cancelEnquiry =
+    document.getElementById("cancelEnquiry");
+
+if (cancelEnquiry) {
+
+    cancelEnquiry.addEventListener(
+        "click",
+        returnToChat
+    );
+
+}
+
+
+// =======================================
+// SUBMIT ANOTHER ENQUIRY
+// =======================================
+
+const newEnquiry =
+    document.getElementById("newEnquiry");
+
+if (newEnquiry) {
+
+    newEnquiry.addEventListener("click", function () {
+
+        const form =
+            document.getElementById("enquiryForm");
+
+        const confirmation =
+            document.getElementById("enquiryConfirmation");
+
+        if (form) {
+            form.reset();
+            form.hidden = false;
+        }
+
+        if (confirmation) {
+            confirmation.hidden = true;
+        }
+
+    });
+
+}
+
+
+
+ // =======================================
+ // SUBMIT ENQUIRY FORM — DEMO ONLY
+ // =======================================
+
+const enquiryForm =
+    document.getElementById("enquiryForm");
+
+if (enquiryForm) {
+
+    enquiryForm.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+            const name =
+                document.getElementById("enquiryName").value.trim();
+
+            const id =
+                document.getElementById("enquiryStudentID").value.trim();
+
+            const topic =
+                document.getElementById("enquiryTopic").value;
+
+            const question =
+                document.getElementById("enquiryQuestion").value.trim();
+
+            const submitButton =
+                enquiryForm.querySelector('[type="submit"]');
+
+            const enquiryStatus = document.getElementById("enquiryStatus");
+
+if (enquiryStatus) {
+    enquiryStatus.dataset.messageType = "required";
+    enquiryStatus.textContent =
+        translations[getCurrentLanguage()].enquiryRequired;
+}
+
+            // CHECK REQUIRED FIELDS
+            if (!name || !id || !topic || !question) {
+                alert("Please complete all required fields.");
+                return;
+            }
+
+            // SHOW SUBMITTING STATUS
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent = "Submitting...";
+            }
+
+            // DEMO SUBMISSION
+            setTimeout(function () {
+
+                if (status) {
+                    status.textContent =
+                        "Thank you, " + name +
+                        "! Your enquiry has been submitted successfully " +
+                        "It has been sent to POLISAS staff.";
+                } else {
+                    alert(
+                        "Thank you, " + name +
+                        "! Your enquiry has been submitted ."
+                    );
+                }
+
+                // RESET BUTTON
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.textContent = "Submit Enquiry";
+                }
+
+                // OPTIONAL: CLEAR FORM AFTER DEMO SUBMISSION
+                enquiryForm.reset();
+
+            }, 700);
+
+        }
+    );
+
+}
+
+
+
+// =======================================
+// STUDENT ENQUIRY QUICK ACCESS CARD
+// =======================================
+
+const studentEnquiryCard =
+    document.getElementById("studentEnquiryCard");
+
+if (studentEnquiryCard) {
+
+    studentEnquiryCard.addEventListener(
+        "click",
+        function (event) {
+
+            // Prevent the normal Quick Access search handler
+            // from handling this card.
+            event.stopPropagation();
+
+            openEnquiryForm();
+
+        }
+    );
+
+    
+// =======================================
+// CLOSE AI CHATBOT USING X BUTTON
+// =======================================
+
+const closeChatButton = document.getElementById("closeChat");
+const chatWindow = document.getElementById("chatWindow");
+
+if (closeChatButton && chatWindow) {
+
+    closeChatButton.addEventListener("click", function (event) {
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        chatWindow.classList.remove("active");
+        chatWindow.style.display = "none";
+
+    });
+
+}
+
+
+}
+
