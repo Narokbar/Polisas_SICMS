@@ -1,6 +1,24 @@
 
 const translations = {
     English: {
+                // Student Enquiry
+        enquiryTitle: "📝 Student Enquiry Form",
+        enquiryDescription: "Have a question? Submit your enquiry to POLISAS counter staff.",
+        enquiryName: "Student Name *",
+        enquiryNamePlaceholder: "Enter your full name",
+        enquiryStudentID: "Student ID *",
+        enquiryStudentIDPlaceholder: "Enter your student ID",
+        enquiryTopic: "Enquiry Topic *",
+        enquiryTopicDefault: "Select a topic",
+        enquiryFees: "Fees / Payment",
+        enquiryAcademic: "Academic Matters",
+        enquiryOther: "Other",
+        enquiryQuestion: "Your Question *",
+        enquiryQuestionPlaceholder: "Describe your question here...",
+        enquirySubmit: "Submit Enquiry",
+        enquiryBack: "Back to Dashboard",
+        enquiryRequired: "Please complete all required fields.",
+        enquirySuccess: "Your enquiry has been submitted successfully. (Demo only — it has not been sent to POLISAS staff.)",
         welcomeTitle: "Welcome Back 👋",
         searchTitle: "Search Information",
         searchPlaceholder: "Search anything...",
@@ -68,6 +86,24 @@ const translations = {
     },
 
     "Bahasa Melayu": {
+                // Student Enquiry
+        enquiryTitle: "📝 Borang Pertanyaan Pelajar",
+        enquiryDescription: "Ada pertanyaan? Hantar pertanyaan anda kepada kakitangan kaunter POLISAS.",
+        enquiryName: "Nama Pelajar *",
+        enquiryNamePlaceholder: "Masukkan nama penuh anda",
+        enquiryStudentID: "Nombor ID Pelajar *",
+        enquiryStudentIDPlaceholder: "Masukkan nombor ID pelajar anda",
+        enquiryTopic: "Topik Pertanyaan *",
+        enquiryTopicDefault: "Pilih topik",
+        enquiryFees: "Yuran / Pembayaran",
+        enquiryAcademic: "Hal Ehwal Akademik",
+        enquiryOther: "Lain-lain",
+        enquiryQuestion: "Pertanyaan Anda *",
+        enquiryQuestionPlaceholder: "Terangkan pertanyaan anda di sini...",
+        enquirySubmit: "Hantar Pertanyaan",
+        enquiryBack: "Kembali ke Papan Pemuka",
+        enquiryRequired: "Sila lengkapkan semua ruangan yang wajib diisi.",
+        enquirySuccess: "Pertanyaan anda berjaya dihantar. (Demo sahaja — pertanyaan belum dihantar kepada kakitangan POLISAS.)",
         welcomeTitle: "Selamat Datang 👋",
         searchTitle: "Cari Maklumat",
         searchPlaceholder: "Cari apa sahaja...",
@@ -165,6 +201,92 @@ function changeLanguage(language) {
     setText("announcementTitle", selected.announcementTitle);
     setText("result", selected.searchStart);
     setText("logoutBtn", selected.logout);
+        // Student Enquiry Form
+    const enquiryTitle = document.querySelector("#enquiryPanel .title");
+    if (enquiryTitle) enquiryTitle.textContent = selected.enquiryTitle;
+
+    const enquiryDescription = document.querySelector("#enquiryPanel .enquiry-container > p");
+    if (enquiryDescription) enquiryDescription.textContent = selected.enquiryDescription;
+
+    const enquiryLabels = {
+        enquiryName: selected.enquiryName,
+        enquiryStudentID: selected.enquiryStudentID,
+        enquiryTopic: selected.enquiryTopic,
+        enquiryQuestion: selected.enquiryQuestion
+    };
+
+    Object.entries(enquiryLabels).forEach(([id, text]) => {
+        const label = document.querySelector(
+            `#enquiryPanel label[for="${id}"]`
+        );
+
+        if (label) label.textContent = text;
+    });
+
+    const enquiryNameInput = document.getElementById("enquiryName");
+    if (enquiryNameInput) {
+        enquiryNameInput.placeholder = selected.enquiryNamePlaceholder;
+    }
+
+    const enquiryIDInput = document.getElementById("enquiryStudentID");
+    if (enquiryIDInput) {
+        enquiryIDInput.placeholder = selected.enquiryStudentIDPlaceholder;
+    }
+
+    const enquiryQuestionInput = document.getElementById("enquiryQuestion");
+    if (enquiryQuestionInput) {
+        enquiryQuestionInput.placeholder = selected.enquiryQuestionPlaceholder;
+    }
+
+    const enquiryTopicSelect = document.getElementById("enquiryTopic");
+
+    if (enquiryTopicSelect) {
+        const topicTranslations = {
+            "": selected.enquiryTopicDefault,
+            "Registration": selected.registration,
+            "Fees": selected.enquiryFees,
+            "Hostel": selected.hostel,
+            "Transcript": selected.transcript,
+            "SPMP": "SPMP",
+            "Academic": selected.enquiryAcademic,
+            "Other": selected.enquiryOther
+        };
+
+        Array.from(enquiryTopicSelect.options).forEach(option => {
+            if (Object.prototype.hasOwnProperty.call(
+                topicTranslations, option.value
+            )) {
+                option.textContent = topicTranslations[option.value];
+            }
+        });
+    }
+
+    const enquirySubmitButton = document.querySelector(
+        "#enquiryForm .enquiry-submit"
+    );
+
+    if (enquirySubmitButton) {
+        enquirySubmitButton.innerHTML =
+            `<i class="fa-solid fa-paper-plane"></i> ${selected.enquirySubmit}`;
+    }
+
+    const enquiryBackButton = document.getElementById("closeEnquiry");
+    if (enquiryBackButton) {
+        enquiryBackButton.textContent = selected.enquiryBack;
+    }
+
+    // Translate an existing enquiry status message
+    const enquiryStatus = document.getElementById("enquiryStatus");
+
+    if (enquiryStatus && enquiryStatus.dataset.messageType) {
+        const messageType = enquiryStatus.dataset.messageType;
+
+        if (messageType === "success") {
+            enquiryStatus.textContent = selected.enquirySuccess;
+        } else if (messageType === "required") {
+            enquiryStatus.textContent = selected.enquiryRequired;
+        }
+    }
 
     document.querySelectorAll(".card").forEach(card => {
         const heading = card.querySelector("h3");
